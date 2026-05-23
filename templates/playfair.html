@@ -1,0 +1,150 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="algorithm-layout">
+
+    <!-- LEFT PANEL -->
+    <div class="left-panel">
+
+        <div class="crypto-card">
+
+            <h1 class="card-title">
+                PLAYFAIR CIPHER
+            </h1>
+
+            <p class="card-subtitle">
+                Enkripsi & Dekripsi menggunakan matriks 5x5
+            </p>
+
+            <form method="POST">
+
+                <div class="mb-3">
+                    <label>Kata Kunci</label>
+                    <input type="text"
+                           class="form-control"
+                           name="key"
+                           value="{{ request.form.get('key','') }}"
+                           required>
+                </div>
+
+                <div class="mb-3">
+                    <label>Teks</label>
+                    <textarea name="text"
+                              rows="5"
+                              class="form-control"
+                              required>{{ request.form.get('text','') }}</textarea>
+                </div>
+
+                <!-- BUTTON -->
+<div class="d-flex gap-2">
+
+    <button type="submit" class="btn-crypto w-100">
+        Jalankan
+    </button>
+
+    <a href="{{ request.path }}" class="btn-crypto btn-reset w-100 text-center">
+        Reset
+    </a>
+
+</div>
+
+            </form>
+
+        </div>
+
+        <!-- ATURAN -->
+        <div class="crypto-card">
+
+            <h3>Aturan Playfair Cipher</h3>
+
+            <div class="step-box">
+                <p>• Huruf satu baris → geser ke kanan</p>
+                <p>• Huruf satu kolom → geser ke bawah</p>
+                <p>• Membentuk persegi → tukar sudut</p>
+                <p>• Huruf I dan J digabung menjadi satu sel</p>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- CENTER PANEL -->
+    <div class="center-panel">
+
+        {% if matrix %}
+        <div class="crypto-card">
+
+            <h3>Matriks 5x5</h3>
+
+            <div class="matrix-grid">
+                {% for row in matrix %}
+                    {% for col in row %}
+                        <div class="matrix-item">
+                            {{ col }}
+                        </div>
+                    {% endfor %}
+                {% endfor %}
+            </div>
+
+        </div>
+        {% endif %}
+
+        {% if result %}
+        <div class="crypto-card">
+
+            <div class="result-box">
+
+                <p class="result-title">Hasil Cipher</p>
+
+                <h2 class="result-text">
+                    {{ result }}
+                </h2>
+
+            </div>
+
+        </div>
+        {% endif %}
+
+    </div>
+
+    <!-- RIGHT PANEL -->
+    <div class="right-panel">
+
+        {% if pairs %}
+        <div class="crypto-card">
+
+            <h3>Pairing Huruf</h3>
+
+            <div class="pair-container">
+                {% for pair in pairs %}
+                    <div class="pair-box">
+                        {{ pair }}
+                    </div>
+                {% endfor %}
+            </div>
+
+        </div>
+        {% endif %}
+
+        {% if process %}
+        <div class="crypto-card">
+
+            <h3>Langkah demi Langkah</h3>
+
+            <div class="process-container">
+                {% for step in process %}
+                    <div class="step-box">
+                        {{ step }}
+                    </div>
+                {% endfor %}
+            </div>
+
+        </div>
+        {% endif %}
+
+    </div>
+
+</div>
+
+{% endblock %}

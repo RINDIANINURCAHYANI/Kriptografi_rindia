@@ -1,0 +1,1923 @@
+/* =========================================
+MAIN LAYOUT
+========================================= */
+
+.main-wrapper{
+
+    display:flex;
+
+    width:100%;
+
+    min-height:100vh;
+
+    overflow:hidden;
+
+}
+/* =========================================================
+IMPORT FONT
+========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+/* =========================================================
+RESET
+========================================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#f4f7ff;
+    overflow-x:hidden;
+    transition:.4s;
+    color:#1c1c1c;
+}
+
+/* =========================================================
+SCROLLBAR
+========================================================= */
+
+::-webkit-scrollbar{
+    width:10px;
+}
+
+::-webkit-scrollbar-track{
+    background:#f1f1f1;
+}
+
+::-webkit-scrollbar-thumb{
+    background:#7b4cff;
+    border-radius:20px;
+}
+
+/* =========================================================
+SIDEBAR
+========================================================= */
+
+.sidebar{
+    width:220px;
+    height:100vh;
+    position:fixed;
+    top:0;
+    left:0;
+    background:
+    linear-gradient(
+        180deg,
+        #5b2be0 0%,
+        #6b3dff 40%,
+        #8e5eff 100%
+    );
+
+    padding:25px 20px;
+    color:white;
+    overflow-y:auto;
+    z-index:999;
+    box-shadow:0 0 30px rgba(0,0,0,.15);
+}
+
+/* =========================================================
+LOGO
+========================================================= */
+
+.logo-box{
+    display:flex;
+    align-items:center;
+    gap:10px;
+
+    margin-bottom:25px;
+}
+
+.logo-wrap{
+    width:40px;
+    height:40px;
+
+    background:rgba(255,255,255,.15);
+
+    backdrop-filter:blur(12px);
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    box-shadow:
+    0 8px 20px rgba(0,0,0,.2);
+}
+
+.logo-icon{
+    font-size:20px;
+    color:white;
+}
+
+.logo-box h2{
+    font-size:18px;
+    font-weight:700;
+    margin-bottom:0;
+    letter-spacing:.5px;
+    line-height:1;
+}
+
+.logo-box p{
+    font-size:10px;
+    opacity:.7;
+    line-height:1.3;
+    max-width:140px;
+}
+
+/* =========================================================
+MENU
+========================================================= */
+
+.menu-title{
+
+    margin-top:18px;
+    margin-bottom:8px;
+
+    padding-left:12px;
+
+    font-size:11px;
+
+    font-weight:600;
+
+    letter-spacing:.8px;
+
+    color:rgba(255,255,255,.6);
+
+}
+.menu{
+    list-style:none;
+}
+
+.menu li{
+    margin-bottom:8px;
+}
+.menu{
+
+    padding-left: 0;
+
+}
+
+.menu li{
+
+    margin-bottom: 4px;
+
+}
+
+.menu a{
+    text-decoration:none;
+    color:white;
+
+    display:flex;
+    align-items:center;
+
+    gap:10px;
+
+    padding:9px 12px;
+
+    border-radius:10px;
+
+    transition:.25s ease;
+
+    font-weight:500;
+
+    font-size:13px;
+}
+
+.menu a:hover{
+    background:rgba(255,255,255,.15);
+    transform:translateX(6px);
+}
+
+.menu a.active{
+    background:
+    linear-gradient(
+        90deg,
+        rgba(255,255,255,.18),
+        rgba(255,255,255,.10)
+    );
+
+    box-shadow:
+    0 8px 20px rgba(0,0,0,.12);
+}
+
+.sidebar-bottom{
+    margin-top:50px;
+    background:rgba(255,255,255,.12);
+    border-radius:24px;
+    padding:20px;
+    text-align:left;
+    backdrop-filter:blur(10px);
+}
+
+.sidebar-bottom img{
+    width:120px;
+    margin-bottom:10px;
+}
+
+.sidebar-bottom h4{
+    font-size:18px;
+    margin-bottom:8px;
+}
+
+.sidebar-bottom p{
+    font-size:13px;
+    opacity:.85;
+}
+
+/* =========================================================
+TOPBAR
+========================================================= */
+
+.topbar{
+
+    width:100%;
+
+    background:white;
+
+    padding:14px 20px;
+
+    border-radius:16px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    margin-bottom:18px;
+
+    box-shadow:
+    0 4px 12px rgba(0,0,0,.04);
+}
+
+.topbar-left{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.menu-toggle{
+    font-size:20px;
+    cursor:pointer;
+}
+
+.topbar-right{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+/* =========================================================
+THEME SWITCH
+========================================================= */
+
+.theme-switch{
+    width:75px;
+    height:40px;
+
+    border-radius:50px;
+
+    background:#6c4cff;
+
+    position:relative;
+
+    cursor:pointer;
+
+    display:flex;
+    align-items:center;
+
+    padding:5px;
+
+    transition:.4s;
+}
+
+.theme-circle{
+    width:30px;
+    height:30px;
+    background:white;
+    border-radius:50%;
+    transition:.4s;
+}
+
+.dark-mode .theme-circle{
+    transform:translateX(35px);
+}
+
+/* =========================================================
+CARD
+========================================================= */
+.card-title{
+    font-size:36px;
+    font-weight:800;
+    margin-bottom:5px;
+}
+
+.card-subtitle{
+    color:#6b7280;
+    margin-bottom:25px;
+}
+
+/* =========================================================
+FORM
+========================================================= */
+
+label{
+    font-weight:600;
+    margin-bottom:8px;
+    display:block;
+}
+
+.form-control,
+.form-select{
+    border-radius:16px !important;
+    border:2px solid #ececff !important;
+    padding:15px !important;
+    transition:.3s !important;
+    box-shadow:none !important;
+}
+
+.form-control:focus,
+.form-select:focus{
+    border-color:#7b4cff !important;
+    box-shadow:
+    0 0 0 4px rgba(123,76,255,.12) !important;
+}
+
+/* =========================================================
+BUTTON
+========================================================= */
+
+.btn-crypto{
+    width:100%;
+
+    border:none;
+
+    padding:15px;
+
+    border-radius:18px;
+
+    background:
+    linear-gradient(
+        90deg,
+        #6f42ff,
+        #ff4da6
+    );
+
+    color:white;
+
+    font-weight:700;
+
+    transition:.3s;
+}
+
+.btn-crypto:hover{
+    transform:translateY(-3px);
+
+    box-shadow:
+    0 10px 25px rgba(111,66,255,.3);
+}
+
+/* =========================================================
+RESULT BOX
+========================================================= */
+
+.result-box{
+    background:#f7f8ff;
+
+    border:2px solid #d9dfff;
+
+    border-radius:20px;
+
+    padding:22px;
+
+    margin-top:20px;
+}
+
+.result-title{
+    font-size:14px;
+    color:#6b7280;
+    margin-bottom:8px;
+}
+
+.result-text{
+    font-size:28px;
+    font-weight:700;
+    color:#6f42ff;
+    word-break:break-word;
+}
+
+/* =========================================================
+STEP BOX
+========================================================= */
+
+.step-box{
+    padding:12px 14px;
+    border-radius:12px;
+    background:#fafbff;
+
+    line-height:1.6;
+    font-size:14px;
+
+    border-left:4px solid #7b4cff;
+}
+
+.step-box:hover{
+    transform:translateX(5px);
+}
+
+/* =========================================================
+PLAYFAIR MATRIX
+========================================================= */
+
+.matrix-item:hover{
+    transform:translateY(-5px);
+    background:#7b4cff;
+    color:white;
+}
+
+/* =========================================================
+PAIRING
+========================================================= */
+
+.pair-container{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+}
+
+.pair-box{
+    background:#fff0f6;
+    color:#ff3f8e;
+
+    border:2px solid #ffc6dc;
+
+    padding:12px 18px;
+
+    border-radius:14px;
+
+    font-weight:700;
+}
+
+/* =========================================================
+TABLE
+========================================================= */
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+table th{
+    background:#f6f7ff;
+    padding:15px;
+    font-size:14px;
+}
+
+table td{
+    padding:15px;
+    border-bottom:1px solid #ececff;
+}
+
+/* =========================================================
+ALERT
+========================================================= */
+
+.crypto-alert{
+    background:#eef8ff;
+    border:2px solid #cde8ff;
+    padding:18px;
+    border-radius:18px;
+    margin-top:20px;
+}
+
+/* =========================================================
+ANIMATION
+========================================================= */
+
+@keyframes fadeUp{
+
+    from{
+        opacity:0;
+        transform:translateY(25px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+/* =========================================================
+DARK MODE
+========================================================= */
+
+.dark-mode{
+    background:#10131a;
+    color:white;
+}
+
+.dark-mode .topbar{
+    background:#1a2130;
+}
+
+.dark-mode .crypto-card{
+    background:#1a2130;
+}
+
+.dark-mode .card-subtitle{
+    color:#aab2c5;
+}
+
+.dark-mode .form-control,
+.dark-mode .form-select{
+    background:#111827 !important;
+    color:white !important;
+    border-color:#2c3750 !important;
+}
+
+.dark-mode .result-box{
+    background:#111827;
+    border-color:#2d3b58;
+}
+
+.dark-mode .step-box{
+    background:#121b2a;
+}
+
+.dark-mode table th{
+    background:#111827;
+}
+
+.dark-mode table td{
+    border-color:#2d3b58;
+}
+
+.dark-mode .matrix-item{
+    background:#111827;
+    color:white;
+}
+
+/* =========================================================
+RESPONSIVE
+========================================================= */
+
+@media(max-width:991px){
+
+   .sidebar{
+
+    width: 230px;
+
+    flex-shrink: 0;
+
+    min-height: 100vh;
+
+}
+
+    .sidebar.active{
+        left:0;
+    }
+
+    .content{
+        margin-left:0;
+        padding:20px;
+    }
+
+    .topbar{
+        padding:18px;
+    }
+
+    .card-title{
+        font-size:28px;
+    }
+
+}
+
+@media(max-width:576px){
+
+    .matrix-grid{
+        grid-template-columns:repeat(5,50px);
+    }
+
+    .matrix-item{
+        width:50px;
+        height:50px;
+        font-size:18px;
+    }
+
+}
+.history-panel {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 320px;
+    height: 100vh;
+    background: #0f172a;
+    color: white;
+    transform: translateX(100%);
+    transition: 0.3s ease;
+    z-index: 9999;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.history-panel.active {
+    transform: translateX(0);
+}
+
+.history-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.history-item {
+    background: rgba(255,255,255,0.08);
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.clear-history {
+    display: block;
+    margin-top: 15px;
+    color: red;
+    text-align: center;
+    text-decoration: none;
+}
+
+
+/* =========================================
+FEATURE GRID
+========================================= */
+
+.feature-grid{
+
+    display: grid;
+
+    grid-template-columns: repeat(auto-fit, minmax(240px,1fr));
+
+    gap: 25px;
+
+    margin: 35px 0 50px 0;
+
+}
+
+/* =========================================
+FEATURE CARD
+========================================= */
+
+.feature-card{
+
+    background: linear-gradient(
+        135deg,
+        rgba(108,59,255,0.12),
+        rgba(255,255,255,0.65)
+    );
+
+    backdrop-filter: blur(12px);
+
+    border: 1px solid rgba(255,255,255,0.25);
+
+    padding: 35px 25px;
+
+    border-radius: 28px;
+
+    text-align: center;
+
+    transition: 0.3s;
+
+    box-shadow:
+    0 10px 25px rgba(0,0,0,.06);
+
+    min-height: 250px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+}
+
+.feature-card:hover{
+
+    transform: translateY(-6px);
+
+    box-shadow:
+    0 15px 35px rgba(108,59,255,.15);
+
+}
+
+/* =========================================
+FEATURE ICON
+========================================= */
+
+.feature-icon{
+
+    font-size: 50px;
+
+    margin-bottom: 15px;
+
+}
+
+/* =========================================
+FEATURE TITLE
+========================================= */
+
+.feature-card h4{
+
+    margin-bottom: 14px;
+
+    font-size: 24px;
+
+    font-weight: 700;
+
+    color: #2b165f;
+
+}
+
+/* =========================================
+FEATURE TEXT
+========================================= */
+
+.feature-card p{
+
+    font-size: 16px;
+
+    line-height: 1.7;
+
+    color: #4b5563;
+
+}
+
+/* =========================================
+DARK MODE FEATURE
+========================================= */
+
+.dark-mode .feature-card{
+
+    background: linear-gradient(
+        135deg,
+        rgba(108,59,255,0.18),
+        rgba(15,23,42,0.9)
+    );
+
+    border: 1px solid rgba(255,255,255,0.08);
+
+}
+
+.dark-mode .feature-card h4{
+
+    color: white;
+
+}
+
+.dark-mode .feature-card p{
+
+    color: #cbd5e1;
+
+}
+/* =========================================
+LAYOUT LEBIH LUAS
+========================================= */
+
+.content{
+    margin-left:220px;
+    width:calc(100% - 220px);
+
+    padding:18px 22px;
+
+    min-height:100vh;
+}
+
+/* =========================================
+HERO SECTION
+========================================= */
+
+.hero-section{
+
+    background: linear-gradient(
+        135deg,
+        #6c3bff,
+        #0f172a
+    );
+
+    padding:45px 35px;
+
+    border-radius:24px;
+
+    margin-bottom:30px;
+
+    position:relative;
+
+    overflow:hidden;
+
+    color:white;
+
+}
+
+.hero-title{
+
+    font-size:42px;
+
+    font-weight:800;
+
+    margin-bottom:12px;
+
+    line-height:1.2;
+
+}
+
+.hero-subtitle{
+
+    font-size:18px;
+
+    opacity:.9;
+
+    margin-bottom:14px;
+
+}
+
+.hero-description{
+
+    max-width:620px;
+
+    line-height:1.7;
+
+    font-size:15px;
+
+    margin-bottom:24px;
+
+}
+/* =========================================
+BUTTON HERO
+========================================= */
+
+.hero-buttons{
+
+    display: flex;
+
+    gap: 20px;
+
+    flex-wrap: wrap;
+
+}
+
+.btn-hero,
+.btn-hero-outline{
+
+    padding: 14px 28px;
+
+    border-radius: 14px;
+
+    text-decoration: none;
+
+    font-weight: 600;
+
+    transition: 0.3s;
+
+}
+
+.btn-hero{
+
+    background: linear-gradient(
+        135deg,
+        #6c63ff,
+        #4f46e5
+    );
+
+    color: white;
+
+}
+
+.btn-hero:hover{
+
+    transform: scale(1.05);
+
+}
+
+.btn-hero-outline{
+
+    border: 2px solid #6c63ff;
+
+    color: #6c63ff;
+
+}
+
+.btn-hero-outline:hover{
+
+    background: #6c63ff;
+
+    color: white;
+
+}
+
+/* =========================================
+FEATURE GRID
+========================================= */
+
+.feature-grid{
+
+    display: grid;
+
+    grid-template-columns: repeat(auto-fit, minmax(240px,1fr));
+
+    gap: 25px;
+
+    margin-bottom: 50px;
+
+}
+
+.feature-card{
+
+    background: white;
+
+    padding: 35px 25px;
+
+    border-radius: 24px;
+
+    text-align: center;
+
+    transition: 0.3s;
+
+    box-shadow:
+    0 10px 25px rgba(0,0,0,.06);
+
+    min-height: 260px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+}
+.feature-card h4{
+
+    margin-top: 15px;
+
+    margin-bottom: 12px;
+
+    font-size: 28px;
+
+    font-weight: 700;
+
+}
+
+.feature-card p{
+
+    font-size: 17px;
+
+    line-height: 1.7;
+
+    color: #555;
+
+}
+.feature-card:hover{
+
+    transform: translateY(-5px);
+
+}
+
+.feature-icon{
+
+    font-size: 45px;
+
+    margin-bottom: 15px;
+
+}
+
+/* =========================================
+BACKGROUND ANIMATION
+========================================= */
+
+body::before{
+
+    content: "";
+
+    position: fixed;
+
+    width: 300px;
+
+    height: 300px;
+
+    border-radius: 50%;
+
+    top: 40px;
+
+    right: 40px;
+
+    z-index: -1;
+
+    transition: 0.5s;
+
+    animation: floating 6s ease-in-out infinite;
+
+}
+
+/* MODE SIANG */
+
+body:not(.dark-mode)::before{
+
+    background:
+    radial-gradient(
+        circle,
+        #ffd54f,
+        #ff9800
+    );
+
+    box-shadow:
+    0 0 80px #ffd54f;
+}
+
+/* MODE MALAM */
+
+body.dark-mode::before{
+
+    background:
+    radial-gradient(
+        circle,
+        #dbeafe,
+        #93c5fd
+    );
+
+    box-shadow:
+    0 0 80px #93c5fd;
+}
+
+/* =========================================
+ANIMATION
+========================================= */
+
+@keyframes floating{
+
+    0%{
+        transform: translateY(0px);
+    }
+
+    50%{
+        transform: translateY(20px);
+    }
+
+    100%{
+        transform: translateY(0px);
+    }
+
+}
+
+/* =========================================
+RESPONSIVE
+========================================= */
+
+@media(max-width:768px){
+
+    .hero-title{
+    font-size:42px;
+    font-weight:800;
+}
+
+   .hero-section{
+    padding:45px 35px;
+    border-radius:24px;
+    margin-bottom:30px;
+}
+
+    .content{
+
+        padding: 20px;
+
+    }
+
+}
+/* =========================================
+THEORY PAGE
+========================================= */
+
+.theory-card{
+
+    padding: 40px;
+
+}
+
+.theory-title{
+
+    font-size: 34px;
+
+    font-weight: 800;
+
+    margin-bottom: 18px;
+
+    color: #6c3bff;
+
+    line-height: 1.4;
+
+}
+
+/* =========================================
+TEXT TEORI RAPII
+========================================= */
+
+.theory-text{
+
+    font-size: 16px;
+
+    font-weight: 400;
+
+    line-height: 1.9;
+
+    letter-spacing: 0.3px;
+
+    text-align: justify;
+
+    color: #4b5563;
+
+    margin-bottom: 22px;
+
+}
+
+/* =========================================
+JUDUL ALGORITMA
+========================================= */
+
+.theory-card h2{
+
+    font-size: 30px;
+
+    font-weight: 700;
+
+    margin-bottom: 20px;
+
+    color: #6c3bff;
+
+}
+
+.theory-card h3{
+
+    font-size: 28px;
+
+    font-weight: 700;
+
+    margin-top: 40px;
+
+    margin-bottom: 18px;
+
+    color: #7c3aed;
+
+}
+
+/* =========================================
+SUB JUDUL
+========================================= */
+
+.theory-card h4{
+
+    font-size: 20px;
+
+    font-weight: 700;
+
+    margin-top: 25px;
+
+    margin-bottom: 12px;
+
+    color: #111827;
+
+}
+
+.theory-card ul{
+    padding-left: 22px;
+    margin-bottom: 18px;
+}
+
+.theory-card ul li{
+    font-size: 15px;
+    line-height: 1.8;
+    margin-bottom: 6px;
+    color: #333;
+}
+
+/* DARK MODE */
+.dark-mode .theory-text{
+    color: #e5e7eb;
+}
+
+.dark-mode .theory-card h4{
+    color: #f9fafb;
+}
+
+.dark-mode .theory-card ul li{
+    color: #d1d5db;
+}
+
+/* FORMULA (lebih laporan) */
+.formula-box{
+    background: #f3f4f6;
+    color: #111;
+    padding: 14px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-family: monospace;
+    text-align: center;
+    margin-bottom: 20px;
+    border-left: 4px solid #6c3bff;
+}
+
+/* CONTOH */
+.example-box{
+    background: #fafafa;
+    border-left: 4px solid #6c3bff;
+    padding: 16px;
+    border-radius: 8px;
+    line-height: 1.7;
+    margin-top: 12px;
+    color: #222;
+}
+
+/* GRID (kalau mau laporan murni, SEDERHANAKAN) */
+.theory-grid{
+    display: block;
+    margin-top: 20px;
+}
+
+.mini-box{
+    background: #f9fafb;
+    padding: 18px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #e5e7eb;
+}
+
+.mini-box h5{
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #333;
+}
+
+.mini-box ul{
+    padding-left: 20px;
+    line-height: 1.7;
+}
+
+/* =========================================
+DARK MODE THEORY
+========================================= */
+
+.dark-mode .theory-text{
+
+    color: #d1d5db;
+
+    line-height: 1.9;
+
+}
+
+/* =========================================
+EXAMPLE BOX
+========================================= */
+
+.dark-mode .example-box{
+
+    background: rgba(108,59,255,0.15);
+
+    border: 1px solid rgba(139,92,246,0.35);
+
+    color: #f3f4f6;
+
+    padding: 18px;
+
+    border-radius: 18px;
+
+    backdrop-filter: blur(10px);
+
+    box-shadow:
+    0 8px 20px rgba(0,0,0,0.15);
+
+}
+
+/* =========================================
+FORMULA BOX
+========================================= */
+
+.dark-mode .formula-box{
+
+    background: linear-gradient(
+        135deg,
+        #6d28d9,
+        #4f46e5
+    );
+
+    color: white;
+
+    border-radius: 18px;
+
+    padding: 18px;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+    box-shadow:
+    0 10px 25px rgba(76,29,149,0.35);
+
+}
+
+/* =========================================
+MINI THEORY BOX
+========================================= */
+
+.dark-mode .mini-box{
+
+    background: rgba(255,255,255,0.06);
+
+    border: 1px solid rgba(255,255,255,0.08);
+
+    border-radius: 18px;
+
+    padding: 20px;
+
+    color: #e5e7eb;
+
+    backdrop-filter: blur(8px);
+
+    transition: 0.3s ease;
+
+}
+
+.dark-mode .mini-box:hover{
+
+    transform: translateY(-4px);
+
+    background: rgba(255,255,255,0.08);
+
+}
+
+/* =========================================
+THEORY CARD TITLE
+========================================= */
+
+.dark-mode .crypto-card h2{
+
+    color: #ffffff;
+
+}
+
+.dark-mode .crypto-card h4{
+
+    color: #c4b5fd;
+
+}
+
+/* =========================================
+THEORY LIST
+========================================= */
+
+.dark-mode .crypto-card ul li{
+
+    color: #d1d5db;
+
+    margin-bottom: 8px;
+
+}
+
+/* =========================
+   CARD
+========================= */
+
+.crypto-card{
+    background:white;
+    border-radius:16px;
+    padding:18px;
+    margin-bottom:18px;
+
+    border:1px solid #ececff;
+
+    box-shadow:
+    0 2px 10px rgba(0,0,0,.04);
+}
+
+
+/* =========================
+   TITLE
+========================= */
+
+.card-title{
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.card-subtitle{
+    opacity: 0.7;
+    margin-bottom: 25px;
+}
+
+
+/* =========================
+   INPUT
+========================= */
+
+.form-control{
+    width: 100%;
+    padding: 14px;
+    border-radius: 14px;
+    border: 1px solid #dcdfe8;
+
+    background: white;
+
+    color: #111827;
+
+    outline: none;
+}
+.dark-mode .form-control{
+    background: rgba(255,255,255,0.05);
+    color: white;
+    border: 1px solid rgba(255,255,255,0.08);
+}
+.form-control::placeholder{
+    color:#6b7280;
+}
+
+.dark-mode .form-control::placeholder{
+    color:#9ca3af;
+}
+
+.form-control:focus{
+    border-color: #7c4dff;
+}
+
+
+/* =========================
+   BUTTON
+========================= */
+
+.btn-crypto{
+    width: 100%;
+    padding: 14px;
+
+    border: none;
+    border-radius: 14px;
+
+    background: linear-gradient(
+        90deg,
+        #7c4dff,
+        #b84dff
+    );
+
+    color: white;
+    font-weight: bold;
+
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-crypto:hover{
+    transform: translateY(-2px);
+}
+
+
+/* =========================
+   MATRIX
+========================= */
+.matrix-grid{
+    display:grid;
+
+    grid-template-columns:repeat(5,42px);
+
+    gap:6px;
+
+    justify-content:start;
+
+    margin-top:14px;
+}
+
+.matrix-item{
+    width:42px;
+    height:42px;
+
+    border-radius:10px;
+
+    font-size:16px;
+    font-weight:700;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:white;
+
+    box-shadow:
+        0 2px 8px rgba(0,0,0,.05);
+}
+/* =========================
+   PAIRING
+========================= */
+
+.pair-container{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.pair-box{
+    padding: 10px 16px;
+    border-radius: 12px;
+
+    background: rgba(124,77,255,0.2);
+
+    border: 1px solid rgba(124,77,255,0.4);
+
+    font-weight: bold;
+}
+
+
+/* =========================
+   STEP
+========================= */
+
+.step-box{
+    padding: 14px;
+    border-radius: 14px;
+
+    background: rgba(255,255,255,0.04);
+
+    line-height: 1.6;
+}
+
+
+/* =========================
+   RESULT
+========================= */
+
+.result-box{
+    text-align: center;
+}
+
+.result-title{
+    opacity: 0.7;
+    margin-bottom: 12px;
+}
+
+.result-text{
+    font-size: 28px;
+    font-weight: bold;
+
+    color: #7c4dff;
+
+    word-break: break-word;
+}
+
+
+/* =========================
+   HISTORY
+========================= */
+
+.history-card{
+    margin-top: 30px;
+}
+
+.history-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 20px;
+}
+
+.table-wrapper{
+    overflow-x: auto;
+}
+
+.history-table{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.history-table th,
+.history-table td{
+    padding: 14px;
+    text-align: left;
+}
+
+.history-table tr{
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width: 1200px){
+
+    .algorithm-layout{
+        grid-template-columns: 1fr;
+    }
+
+}
+.algorithm-layout{
+    display:grid;
+    grid-template-columns: 1.1fr 1fr 1fr;
+    gap:20px;
+    align-items:start;
+    margin-top:20px;
+}
+/* =========================================
+GLOBAL ALGORITHM LAYOUT
+========================================= */
+
+.algorithm-layout{
+    display:grid;
+    grid-template-columns:1.1fr 1fr 1fr;
+    gap:20px;
+    align-items:start;
+    margin-top:20px;
+}
+
+.left-panel,
+.center-panel,
+.right-panel{
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+}
+
+.process-container{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+}
+
+@media(max-width:1200px){
+
+    .algorithm-layout{
+        grid-template-columns:1fr;
+    }
+
+}
+/* =========================================
+FORM INPUT MODE SIANG
+========================================= */
+
+body:not(.dark-mode) .form-control,
+body:not(.dark-mode) .form-select{
+
+    background: white !important;
+
+    color: #111827 !important;
+
+    border: 1px solid #dbe1f1 !important;
+
+}
+
+/* TEXTAREA */
+
+body:not(.dark-mode) textarea.form-control{
+
+    color: #111827 !important;
+
+}
+
+/* OPTION SELECT */
+
+body:not(.dark-mode) .form-select option{
+
+    color: #111827;
+
+}
+
+/* =========================================
+BUTTON AREA
+========================================= */
+
+.d-flex.gap-2{
+
+    display:flex;
+
+    gap:12px;
+
+    align-items:center;
+
+}
+
+/* =========================================
+RESET BUTTON
+========================================= */
+
+.btn-reset{
+
+    flex:1;
+
+    height:50px;
+
+    border:none;
+
+    border-radius:14px;
+
+    background: linear-gradient(
+        90deg,
+        #7c4dff,
+        #b84dff
+    );
+
+    color:white;
+
+    font-weight:bold;
+
+    text-decoration:none;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    transition:0.3s;
+
+    /* CAHAYA */
+    box-shadow:
+        0 0 10px rgba(124, 77, 255, 0.6),
+        0 0 20px rgba(184, 77, 255, 0.4);
+
+    /* TEKS HIDUP */
+    text-shadow:
+        0 0 5px rgba(255,255,255,0.8),
+        0 0 10px rgba(255,255,255,0.6);
+
+}
+
+.btn-reset:hover{
+
+    transform:translateY(-2px);
+
+    color:white;
+
+    /* GLOW PAS HOVER */
+    box-shadow:
+        0 0 15px rgba(124, 77, 255, 0.8),
+        0 0 30px rgba(184, 77, 255, 0.6);
+
+}
+
+/* =========================================
+BUTTON PROCESS FULL
+========================================= */
+
+.btn-crypto{
+
+    flex:1;
+
+    /* TEKS HIDUP */
+    text-shadow:
+        0 0 5px rgba(255,255,255,0.8),
+        0 0 10px rgba(255,255,255,0.6);
+
+    /* CAHAYA */
+    box-shadow:
+        0 0 10px rgba(124, 77, 255, 0.5);
+
+}
+/* =========================================
+RESPONSIVE BUTTON
+========================================= */
+
+@media(max-width:576px){
+
+    .d-flex.gap-2{
+
+        flex-direction:column;
+
+    }
+
+    .btn-reset{
+
+        width:100%;
+
+        height:50px;
+
+    }
+
+}
+/* =========================================
+BUTTON STYLE ESTETIK
+========================================= */
+
+.btn-crypto,
+.btn-reset{
+
+    flex:1;
+
+    height:50px;
+
+    border:none;
+
+    border-radius:14px;
+
+    background: linear-gradient(
+        90deg,
+        #4facfe,
+        #7c4dff,
+        #00f2fe
+    );
+
+    background-size:300% 300%;
+
+    color:white;
+
+    font-weight:bold;
+
+    text-decoration:none;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    position:relative;
+
+    overflow:hidden;
+
+    transition:0.3s;
+
+    cursor:pointer;
+
+    /* CAHAYA NEON */
+    box-shadow:
+        0 0 10px #4facfe,
+        0 0 20px #7c4dff,
+        0 0 35px rgba(79,172,254,0.7);
+
+    /* TEKS HIDUP */
+    animation:
+        neonMove 5s ease infinite,
+        textFloat 2s ease-in-out infinite;
+
+}
+
+/* HOVER */
+.btn-crypto:hover,
+.btn-reset:hover{
+
+    transform:translateY(-3px) scale(1.02);
+
+    box-shadow:
+        0 0 15px #4facfe,
+        0 0 30px #7c4dff,
+        0 0 50px rgba(79,172,254,1);
+
+}
+
+/* BACKGROUND GERAK */
+@keyframes neonMove{
+
+    0%{
+        background-position:0% 50%;
+    }
+
+    50%{
+        background-position:100% 50%;
+    }
+
+    100%{
+        background-position:0% 50%;
+    }
+
+}
+
+/* TEKS GERAK HIDUP */
+@keyframes textFloat{
+
+    0%{
+        letter-spacing:1px;
+
+        text-shadow:
+            0 0 5px #fff,
+            0 0 10px #4facfe;
+    }
+
+    50%{
+
+        letter-spacing:2px;
+
+        text-shadow:
+            0 0 10px #fff,
+            0 0 20px #4facfe,
+            0 0 30px #7c4dff;
+    }
+
+    100%{
+
+        letter-spacing:1px;
+
+        text-shadow:
+            0 0 5px #fff,
+            0 0 10px #4facfe;
+    }
+
+}

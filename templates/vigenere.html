@@ -1,0 +1,195 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="algorithm-layout">
+
+    <!-- LEFT PANEL -->
+    <div class="left-panel">
+
+        <div class="crypto-card">
+
+            <h1 class="card-title">
+                VIGENÈRE CIPHER
+            </h1>
+
+            <p class="card-subtitle">
+                Cipher menggunakan kata kunci alfabet
+            </p>
+
+            <form method="POST">
+
+                <div class="mb-3">
+
+                    <label>Mode</label>
+
+                    <select name="mode" class="form-select">
+
+                        <option value="encrypt"
+                            {% if request.form.get('mode') == 'encrypt' %}
+                                selected
+                            {% endif %}>
+                            Enkripsi
+                        </option>
+
+                        <option value="decrypt"
+                            {% if request.form.get('mode') == 'decrypt' %}
+                                selected
+                            {% endif %}>
+                            Dekripsi
+                        </option>
+
+                    </select>
+
+                </div>
+
+                <div class="mb-3">
+
+                    <label>Kata Kunci</label>
+
+                    <input type="text"
+                           name="key"
+                           class="form-control"
+                           value="{{ request.form.get('key','') }}"
+                           required>
+
+                </div>
+
+                <div class="mb-3">
+
+                    <label>Teks</label>
+
+                    <textarea name="text"
+                              rows="5"
+                              class="form-control"
+                              required>{{ request.form.get('text','') }}</textarea>
+
+                </div>
+
+                 <!-- BUTTON -->
+<div class="d-flex gap-2">
+
+    <button type="submit" class="btn-crypto w-100">
+        Jalankan
+    </button>
+
+    <a href="{{ request.path }}" class="btn-crypto btn-reset w-100 text-center">
+        Reset
+    </a>
+
+</div>
+
+            </form>
+
+        </div>
+
+        <!-- RUMUS -->
+        <div class="crypto-card">
+
+            <h3>Rumus Vigenère Cipher</h3>
+
+            <div class="step-box">
+
+                <p><b>Enkripsi:</b></p>
+
+                <h4>Cᵢ = (Pᵢ + Kᵢ) mod 26</h4>
+
+                <hr>
+
+                <p><b>Dekripsi:</b></p>
+
+                <h4>Pᵢ = (Cᵢ - Kᵢ) mod 26</h4>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- CENTER PANEL -->
+    <div class="center-panel">
+
+        {% if result %}
+
+        <div class="crypto-card">
+
+            <div class="result-box">
+
+                <p class="result-title">
+                    Hasil Cipher
+                </p>
+
+                <h2 class="result-text">
+                    {{ result }}
+                </h2>
+
+            </div>
+
+        </div>
+
+        {% endif %}
+
+
+
+        <!-- PENJELASAN -->
+        <div class="crypto-card">
+
+            <h3>Penjelasan Vigenère Cipher</h3>
+
+            <div class="step-box">
+
+                <p>
+                    Vigenère Cipher menggunakan kata kunci
+                    untuk menentukan pergeseran huruf.
+                </p>
+
+                <p>
+                    Setiap huruf plaintext akan digeser
+                    berdasarkan huruf pada key.
+                </p>
+
+                <p>
+                    Cipher ini lebih aman dibanding
+                    Caesar Cipher karena shift berubah-ubah.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- RIGHT PANEL -->
+    <div class="right-panel">
+
+        {% if process %}
+
+        <div class="crypto-card">
+
+            <h3>Langkah Perhitungan</h3>
+
+            <div class="process-container">
+
+                {% for step in process %}
+
+                    <div class="step-box">
+                        {{ step }}
+                    </div>
+
+                {% endfor %}
+
+            </div>
+
+        </div>
+
+        {% endif %}
+
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,294 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<!-- =========================================
+HERO SECTION
+========================================= -->
+
+<div class="hero-section">
+
+    <h1 class="hero-title">
+        CLASSICRYPT
+    </h1>
+
+    <p class="hero-subtitle">
+        Modern Classical Cryptography Simulator
+    </p>
+
+    <p class="hero-description">
+
+        Platform simulasi kriptografi klasik interaktif
+        untuk mempelajari proses enkripsi dan dekripsi
+        menggunakan berbagai algoritma cipher klasik.
+
+    </p>
+
+    <div class="hero-buttons">
+
+        <a href="#algoritma"
+           class="btn-hero">
+
+           Mulai Simulasi
+
+        </a>
+
+        <a href="/theory"
+           class="btn-hero-outline">
+
+           Pelajari Teori
+
+        </a>
+
+    </div>
+
+</div>
+
+<!-- =========================================
+WELCOME SECTION
+========================================= -->
+
+<div class="crypto-card text-center">
+
+    <h2>
+        Selamat Datang di CLASSICRYPT
+    </h2>
+
+    <p>
+        Website ini menyediakan simulasi interaktif
+        berbagai algoritma kriptografi klasik
+        lengkap dengan proses perhitungan,
+        rumus matematika, dan visualisasi modern.
+    </p>
+
+</div>
+
+<!-- =========================================
+FITUR WEBSITE
+========================================= -->
+
+<div class="feature-grid">
+
+    <div class="feature-card">
+
+        <div class="feature-icon">
+            🔐
+        </div>
+
+        <h4>
+            Enkripsi & Dekripsi
+        </h4>
+
+        <p>
+            Mendukung simulasi cipher klasik lengkap.
+        </p>
+
+    </div>
+
+    <div class="feature-card">
+
+        <div class="feature-icon">
+            🧮
+        </div>
+
+        <h4>
+            Perhitungan Detail
+        </h4>
+
+        <p>
+            Menampilkan langkah proses algoritma.
+        </p>
+
+    </div>
+
+    <div class="feature-card">
+
+        <div class="feature-icon">
+            🌙
+        </div>
+
+        <h4>
+            Dark / Light Mode
+        </h4>
+
+        <p>
+            Tampilan modern dan nyaman digunakan.
+        </p>
+
+    </div>
+
+    <div class="feature-card">
+
+        <div class="feature-icon">
+            📜
+        </div>
+
+        <h4>
+            Riwayat Aktivitas
+        </h4>
+
+        <p>
+            Menyimpan seluruh proses enkripsi.
+        </p>
+
+    </div>
+
+</div>
+
+<!-- =========================================
+SECTION TITLE
+========================================= -->
+
+<div class="section-title">
+
+    <h2>
+        LAB KRIPTOGRAFI
+    </h2>
+
+    <p>
+        Pilih algoritma untuk mulai simulasi
+    </p>
+
+</div>
+
+<!-- =========================================
+ALGORITMA
+========================================= -->
+
+<div class="row" id="algoritma">
+
+    <!-- Caesar -->
+    <div class="col-lg-4 mb-4">
+
+        <div class="crypto-card">
+
+            <h3>
+                Caesar Cipher
+            </h3>
+
+            <p>
+                Teknik pergeseran huruf menggunakan key numerik.
+            </p>
+
+            <a href="/caesar"
+               class="btn btn-crypto">
+
+               Buka Caesar
+
+            </a>
+
+        </div>
+
+    </div>
+
+    <!-- Vigenere -->
+    <div class="col-lg-4 mb-4">
+
+        <div class="crypto-card">
+
+            <h3>
+                Vigenère Cipher
+            </h3>
+
+            <p>
+                Cipher menggunakan kata kunci alfabet.
+            </p>
+
+            <a href="/vigenere"
+               class="btn btn-crypto">
+
+               Buka Vigenère
+
+            </a>
+
+        </div>
+
+    </div>
+
+    <!-- Affine -->
+    <div class="col-lg-4 mb-4">
+
+        <div class="crypto-card">
+
+            <h3>
+                Affine Cipher
+            </h3>
+
+            <p>
+                Menggunakan fungsi matematika linear.
+            </p>
+
+            <a href="/affine"
+               class="btn btn-crypto">
+
+               Buka Affine
+
+            </a>
+
+        </div>
+
+    </div>
+
+    <!-- Hill -->
+    <div class="col-lg-6 mb-4">
+
+        <div class="crypto-card">
+
+            <h3>
+                Hill Cipher
+            </h3>
+
+            <p>
+                Enkripsi matriks menggunakan matrix multiplication.
+            </p>
+
+            <a href="/hill"
+               class="btn btn-crypto">
+
+               Buka Hill
+
+            </a>
+
+        </div>
+
+    </div>
+
+    <!-- Playfair -->
+    <div class="col-lg-6 mb-4">
+
+        <div class="crypto-card">
+
+            <h3>
+                Playfair Cipher
+            </h3>
+
+            <p>
+                Cipher pairing huruf dengan matrix 5x5.
+            </p>
+
+            <a href="/playfair"
+               class="btn btn-crypto">
+
+               Buka Playfair
+
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- =========================================
+FOOTER
+========================================= -->
+
+<div class="crypto-card text-center">
+
+    <p>
+        Aplikasi simulasi kriptografi klasik
+        berbasis web menggunakan Flask.
+    </p>
+
+</div>
+{% endblock %}

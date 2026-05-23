@@ -1,0 +1,248 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="algorithm-layout">
+
+    <!-- LEFT PANEL -->
+    <div class="left-panel">
+
+        <div class="crypto-card">
+
+            <h1 class="card-title">
+                HILL CIPHER
+            </h1>
+
+            <p class="card-subtitle">
+                Matrix multiplication cryptography
+            </p>
+
+            <form method="POST">
+
+                <!-- PILIH UKURAN MATRIX -->
+                <div class="mb-3">
+
+                    <label>Pilih Ukuran Matriks</label>
+
+                    <select name="matrix_size"
+                            id="matrixSize"
+                            class="form-control"
+                            onchange="generateMatrix()"
+                            required>
+
+                        <option value="2"
+                            {% if request.form.get('matrix_size') == '2' %}
+                                selected
+                            {% endif %}>
+                            2 x 2
+                        </option>
+
+                        <option value="3"
+                            {% if request.form.get('matrix_size') == '3' %}
+                                selected
+                            {% endif %}>
+                            3 x 3
+                        </option>
+
+                    </select>
+
+                </div>
+
+                <!-- MATRIX INPUT -->
+                <div class="mb-3">
+
+                    <label>Matrix Key</label>
+
+                    <div id="matrixContainer"></div>
+
+                </div>
+
+                <!-- TEXT -->
+                <div class="mb-3">
+
+                    <label>Teks</label>
+
+                    <textarea name="text"
+                              rows="5"
+                              class="form-control"
+                              required>{{ request.form.get('text','') }}</textarea>
+
+                </div>
+
+                 <!-- BUTTON -->
+<div class="d-flex gap-2">
+
+    <button type="submit" class="btn-crypto w-100">
+        Jalankan
+    </button>
+
+    <a href="{{ request.path }}" class="btn-crypto btn-reset w-100 text-center">
+        Reset
+    </a>
+
+</div>
+
+            </form>
+
+        </div>
+
+
+        <!-- RUMUS -->
+        <div class="crypto-card">
+
+            <h3>Rumus Hill Cipher</h3>
+
+            <div class="step-box">
+
+                <h4>E = (K × P) mod 26</h4>
+
+                <hr>
+
+                <p>
+                    K = Matrix Key
+                </p>
+
+                <p>
+                    P = Plaintext Matrix
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- CENTER PANEL -->
+    <div class="center-panel">
+
+        {% if result %}
+
+        <div class="crypto-card">
+
+            <div class="result-box">
+
+                <p class="result-title">
+                    Hasil Cipher
+                </p>
+
+                <h2 class="result-text">
+                    {{ result }}
+                </h2>
+
+            </div>
+
+        </div>
+
+        {% endif %}
+
+
+
+        <!-- PENJELASAN -->
+        <div class="crypto-card">
+
+            <h3>Penjelasan Hill Cipher</h3>
+
+            <div class="step-box">
+
+                <p>
+                    Hill Cipher menggunakan perkalian matriks
+                    untuk mengenkripsi teks.
+                </p>
+
+                <p>
+                    Setiap huruf diubah menjadi angka
+                    lalu dikalikan dengan matrix key.
+                </p>
+
+                <p>
+                    Hasil perkalian dihitung menggunakan modulo 26.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- RIGHT PANEL -->
+    <div class="right-panel">
+
+        {% if process %}
+
+        <div class="crypto-card">
+
+            <h3>Proses Matrix Multiplication</h3>
+
+            <div class="process-container">
+
+                {% for step in process %}
+
+                    <div class="step-box">
+                        {{ step }}
+                    </div>
+
+                {% endfor %}
+
+            </div>
+
+        </div>
+
+        {% endif %}
+
+    </div>
+
+</div>
+
+
+
+<script>
+
+function generateMatrix() {
+
+    let size = document.getElementById("matrixSize").value;
+
+    let container = document.getElementById("matrixContainer");
+
+    container.innerHTML = "";
+
+    for(let i = 0; i < size; i++) {
+
+        let row = document.createElement("div");
+
+        row.style.display = "flex";
+        row.style.gap = "10px";
+        row.style.marginBottom = "10px";
+
+        for(let j = 0; j < size; j++) {
+
+            let input = document.createElement("input");
+
+            input.type = "number";
+
+            input.name = "matrix";
+
+            input.className = "form-control";
+
+            input.required = true;
+
+            input.value = "{{ request.form.getlist('matrix')|join(',') }}".split(',')[i * size + j] || "";
+
+            row.appendChild(input);
+
+        }
+
+        container.appendChild(row);
+
+    }
+
+}
+
+window.onload = generateMatrix;
+
+</script>
+
+{% endblock %}

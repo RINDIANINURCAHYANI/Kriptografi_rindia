@@ -1,0 +1,208 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="algorithm-layout">
+
+    <!-- LEFT PANEL -->
+    <div class="left-panel">
+
+        <div class="crypto-card">
+
+            <h1 class="card-title">
+                AFFINE CIPHER
+            </h1>
+
+            <p class="card-subtitle">
+                Cipher matematika linear
+            </p>
+
+            <form method="POST">
+
+                <div class="row">
+
+                    <div class="col-md-6 mb-3">
+
+                        <label>Nilai a</label>
+
+                        <input type="number"
+                               class="form-control"
+                               name="a"
+                               value="{{ request.form.get('a','') }}"
+                               required>
+
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+
+                        <label>Nilai b</label>
+
+                        <input type="number"
+                               class="form-control"
+                               name="b"
+                               value="{{ request.form.get('b','') }}"
+                               required>
+
+                    </div>
+
+                </div>
+
+                <div class="mb-3">
+
+                    <label>Mode</label>
+
+                    <select name="mode" class="form-select">
+
+                        <option value="encrypt"
+                        {% if request.form.get('mode') == 'encrypt' %}
+                        selected
+                        {% endif %}>
+                            Enkripsi
+                        </option>
+
+                        <option value="decrypt"
+                        {% if request.form.get('mode') == 'decrypt' %}
+                        selected
+                        {% endif %}>
+                            Dekripsi
+                        </option>
+
+                    </select>
+
+                </div>
+
+                <div class="mb-3">
+
+                    <label>Teks</label>
+
+                    <textarea name="text"
+                              rows="5"
+                              class="form-control"
+                              required>{{ request.form.get('text','') }}</textarea>
+
+                </div>
+
+               <!-- BUTTON -->
+<div class="d-flex gap-2">
+
+    <button type="submit" class="btn-crypto w-100">
+        Jalankan
+    </button>
+
+    <a href="{{ request.path }}" class="btn-crypto btn-reset w-100 text-center">
+        Reset
+    </a>
+
+</div>
+
+            </form>
+
+        </div>
+
+
+        <!-- RUMUS -->
+        <div class="crypto-card">
+
+            <h3>Rumus Affine Cipher</h3>
+
+            <div class="step-box">
+
+                <p><b>Enkripsi:</b></p>
+
+                <h4>E(x) = (ax + b) mod 26</h4>
+
+                <hr>
+
+                <p><b>Dekripsi:</b></p>
+
+                <h4>D(x) = a⁻¹(x - b) mod 26</h4>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- CENTER PANEL -->
+    <div class="center-panel">
+
+        {% if result %}
+
+        <div class="crypto-card">
+
+            <div class="result-box">
+
+                <p class="result-title">
+                    Hasil Cipher
+                </p>
+
+                <h2 class="result-text">
+                    {{ result }}
+                </h2>
+
+            </div>
+
+        </div>
+
+        {% endif %}
+
+
+        <!-- PENJELASAN -->
+        <div class="crypto-card">
+
+            <h3>Penjelasan Affine Cipher</h3>
+
+            <div class="step-box">
+
+                <p>
+                    Affine Cipher menggunakan fungsi matematika linear
+                    untuk mengubah huruf menjadi cipher text.
+                </p>
+
+                <p>
+                    Nilai <b>a</b> harus relatif prima dengan 26.
+                </p>
+
+                <p>
+                    Setiap huruf dikonversi ke angka:
+                    A=0, B=1, C=2, dst.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- RIGHT PANEL -->
+    <div class="right-panel">
+
+        {% if process %}
+
+        <div class="crypto-card">
+
+            <h3>Langkah Perhitungan</h3>
+
+            <div class="process-container">
+
+                {% for step in process %}
+
+                    <div class="step-box">
+                        {{ step }}
+                    </div>
+
+                {% endfor %}
+
+            </div>
+
+        </div>
+
+        {% endif %}
+
+    </div>
+
+</div>
+
+{% endblock %}

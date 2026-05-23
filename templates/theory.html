@@ -1,0 +1,549 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<!-- =========================================
+HEADER
+========================================= -->
+
+<div class="hero-section">
+
+    <h1 class="hero-title">
+        TEORI KRIPTOGRAFI
+    </h1>
+
+    <p class="hero-subtitle">
+        Classical Cryptography Theory
+    </p>
+
+    <p class="hero-description">
+
+        Penjelasan lengkap algoritma kriptografi klasik,
+        sejarah, deskripsi, cara kerja, rumus matematika,
+        contoh enkripsi, kelebihan, kekurangan,
+        dan kegunaannya.
+
+    </p>
+
+</div>
+
+<!-- =========================================
+CAESAR
+========================================= -->
+
+<div class="crypto-card theory-card">
+
+    <h2 class="theory-title">
+        1. Caesar Cipher
+    </h2>
+
+    <div class="theory-box">
+
+        <h4>Sejarah</h4>
+
+        <p class="theory-text">
+            Caesar Cipher merupakan salah satu algoritma
+            kriptografi klasik paling tua dalam sejarah.
+            Algoritma ini digunakan oleh Julius Caesar,
+            seorang pemimpin militer Romawi, untuk
+            mengamankan pesan penting ketika berkomunikasi
+            dengan pasukannya di medan perang.
+        </p>
+
+        <p class="theory-text">
+            Pada masa itu, pesan rahasia sering kali
+            dikirim melalui kurir sehingga sangat rentan
+            dibaca oleh musuh. Oleh karena itu,
+            Julius Caesar menggunakan teknik pergeseran
+            huruf agar isi pesan tidak mudah dipahami
+            oleh pihak lain.
+        </p>
+
+        <h4>Deskripsi</h4>
+
+        <p class="theory-text">
+            Caesar Cipher adalah metode enkripsi
+            substitution cipher yang bekerja dengan
+            cara menggeser setiap huruf pada plaintext
+            berdasarkan nilai key tertentu.
+        </p>
+
+        <p class="theory-text">
+            Jika key bernilai 3, maka huruf A akan
+            berubah menjadi D, B menjadi E,
+            dan seterusnya hingga Z kembali
+            ke awal alfabet menggunakan operasi modulo 26.
+        </p>
+
+        <p class="theory-text">
+            Algoritma ini sangat sederhana sehingga
+            sering digunakan sebagai dasar pembelajaran
+            konsep enkripsi dan dekripsi dalam dunia
+            kriptografi modern.
+        </p>
+
+        <h4>Rumus Matematika</h4>
+
+        <div class="formula-box">
+            E(x) = (x + k) mod 26
+        </div>
+
+        <div class="formula-box">
+            D(x) = (x - k) mod 26
+        </div>
+
+        <p class="theory-text">
+            Keterangan:
+        </p>
+
+        <ul>
+            <li>
+                E(x) = proses enkripsi
+            </li>
+
+            <li>
+                D(x) = proses dekripsi
+            </li>
+
+            <li>
+                x = nilai huruf plaintext
+            </li>
+
+            <li>
+                k = nilai key atau pergeseran
+            </li>
+
+            <li>
+                mod 26 = jumlah alfabet
+            </li>
+        </ul>
+
+        <h4>Cara Kerja</h4>
+
+        <p class="theory-text">
+            Setiap huruf akan diubah terlebih dahulu
+            menjadi angka berdasarkan posisi alfabet:
+        </p>
+
+        <div class="example-box">
+
+            A = 0 <br>
+            B = 1 <br>
+            C = 2 <br>
+            ... <br>
+            Z = 25
+
+        </div>
+
+        <p class="theory-text">
+            Setelah itu, nilai huruf akan dijumlahkan
+            dengan key menggunakan operasi modulo 26.
+        </p>
+
+        <p class="theory-text">
+            Contoh jika key = 3:
+        </p>
+
+        <ul>
+            <li>A → D</li>
+            <li>B → E</li>
+            <li>C → F</li>
+            <li>D → G</li>
+            <li>E → H</li>
+        </ul>
+
+        <h4>Contoh Enkripsi</h4>
+
+        <div class="example-box">
+
+            Plaintext : HELLO <br><br>
+
+            Key : 3 <br><br>
+
+            H = (7 + 3) mod 26 = 10 → K <br>
+            E = (4 + 3) mod 26 = 7 → H <br>
+            L = (11 + 3) mod 26 = 14 → O <br>
+            L = (11 + 3) mod 26 = 14 → O <br>
+            O = (14 + 3) mod 26 = 17 → R <br><br>
+
+            Ciphertext : KHOOR
+
+        </div>
+
+        <h4>Kelebihan</h4>
+
+        <ul>
+
+            <li>
+                Mudah dipahami dan dipelajari
+            </li>
+
+            <li>
+                Proses enkripsi sangat cepat
+            </li>
+
+            <li>
+                Cocok untuk pembelajaran dasar kriptografi
+            </li>
+
+            <li>
+                Tidak membutuhkan perhitungan kompleks
+            </li>
+
+        </ul>
+
+        <h4>Kekurangan</h4>
+
+        <ul>
+
+            <li>
+                Sangat mudah dibobol menggunakan brute force
+            </li>
+
+            <li>
+                Memiliki tingkat keamanan rendah
+            </li>
+
+            <li>
+                Pola huruf masih mudah dikenali
+            </li>
+
+            <li>
+                Tidak cocok digunakan untuk keamanan modern
+            </li>
+
+        </ul>
+
+        <h4>Kegunaan</h4>
+
+        <p class="theory-text">
+            Caesar Cipher digunakan sebagai dasar
+            pembelajaran konsep enkripsi klasik
+            dalam bidang keamanan informasi,
+            kriptografi, dan jaringan komputer.
+        </p>
+
+        <p class="theory-text">
+            Algoritma ini juga sering digunakan
+            dalam simulasi pembelajaran karena
+            cara kerjanya sederhana dan mudah
+            divisualisasikan.
+        </p>
+
+    </div>
+
+</div>
+
+<!-- =========================================
+AFFINE
+========================================= -->
+
+<div class="crypto-card">
+
+    <h2>3. Affine Cipher</h2>
+
+    <div class="theory-box">
+
+        <h4>Sejarah</h4>
+
+        <p>
+            Affine Cipher merupakan pengembangan dari teknik substitusi klasik
+            yang menggabungkan konsep aljabar linear dalam kriptografi.
+            Cipher ini sudah digunakan sejak zaman Yunani kuno sebagai bentuk
+            pengamanan pesan sederhana berbasis matematika modular.
+        </p>
+
+        <h4>Deskripsi</h4>
+
+        <p>
+            Affine Cipher adalah algoritma kriptografi klasik yang menggunakan
+            fungsi matematika linear untuk melakukan enkripsi dan dekripsi.
+            Setiap huruf plaintext diubah menjadi angka, kemudian diproses
+            menggunakan fungsi matematika dengan dua parameter utama yaitu a dan b.
+        </p>
+
+        <h4>Rumus Matematika</h4>
+
+        <div class="formula-box">
+            E(x) = (ax + b) mod 26
+        </div>
+
+        <div class="formula-box">
+            D(x) = a⁻¹(x - b) mod 26
+        </div>
+
+        <p>
+            Keterangan: a adalah bilangan yang harus relatif prima dengan 26,
+            b adalah nilai pergeseran, dan a⁻¹ adalah invers modular dari a.
+        </p>
+
+        <h4>Cara Kerja</h4>
+
+        <p>
+            1. Setiap huruf diubah menjadi angka (A = 0 sampai Z = 25).<br>
+            2. Pilih nilai a dan b sebagai kunci enkripsi.<br>
+            3. Gunakan rumus E(x) untuk setiap huruf plaintext.<br>
+            4. Hasilnya dimodulo 26 untuk mendapatkan ciphertext.<br>
+            5. Untuk dekripsi, digunakan invers modular dari a.
+        </p>
+
+        <h4>Contoh Enkripsi</h4>
+
+        <div class="example-box">
+
+            Plaintext : HELLO <br>
+            a = 5, b = 8 <br><br>
+
+            Proses:<br>
+            H → 7 → (5×7 + 8) mod 26 = 15 → P<br>
+            E → 4 → (5×4 + 8) mod 26 = 2 → C<br>
+            L → 11 → (5×11 + 8) mod 26 = 21 → V<br>
+            L → 11 → 21 → V<br>
+            O → 14 → 0 → A<br><br>
+
+            Ciphertext : PCVVA
+
+        </div>
+
+        <h4>Kelebihan</h4>
+
+        <ul>
+            <li>Lebih kompleks dibanding Caesar Cipher</li>
+            <li>Menggunakan konsep matematika modular</li>
+            <li>Memiliki proses dekripsi yang lebih kuat secara teori</li>
+        </ul>
+
+        <h4>Kekurangan</h4>
+
+        <ul>
+            <li>Masih dapat dipecahkan dengan analisis frekuensi</li>
+            <li>Jumlah kombinasi kunci terbatas</li>
+            <li>Harus memenuhi syarat matematika (gcd(a,26)=1)</li>
+        </ul>
+
+        <h4>Kegunaan</h4>
+
+        <p>
+            Digunakan dalam pembelajaran kriptografi untuk memahami
+            penerapan fungsi linear dan konsep modular arithmetic
+            dalam keamanan data.
+        </p>
+
+    </div>
+
+</div>
+
+<!-- =========================================
+HILL
+========================================= -->
+
+<div class="crypto-card">
+
+    <h2>4. Hill Cipher</h2>
+
+    <div class="theory-box">
+
+        <h4>Sejarah</h4>
+
+        <p>
+            Hill Cipher diperkenalkan oleh Lester S. Hill pada tahun 1929.
+            Algoritma ini merupakan salah satu cipher klasik pertama yang
+            menggunakan konsep aljabar linear dan matriks dalam proses enkripsi.
+            Tujuannya adalah untuk meningkatkan keamanan dari cipher substitusi
+            sederhana dengan cara mengenkripsi beberapa huruf sekaligus dalam bentuk blok.
+        </p>
+
+        <h4>Deskripsi</h4>
+
+        <p>
+            Hill Cipher adalah metode kriptografi klasik berbasis matematika
+            yang menggunakan operasi perkalian matriks untuk melakukan enkripsi.
+            Setiap huruf plaintext tidak diproses satu per satu, tetapi dikelompokkan
+            dalam bentuk blok (vektor), kemudian dikalikan dengan matriks kunci (key matrix).
+            Hasil dari operasi ini menghasilkan ciphertext yang lebih kompleks
+            dibandingkan cipher substitusi biasa.
+        </p>
+
+        <h4>Rumus Matematika</h4>
+
+        <div class="formula-box">
+            C = K × P mod 26
+        </div>
+
+        <p>
+            Keterangan: C adalah ciphertext, K adalah matriks kunci (key matrix),
+            dan P adalah plaintext dalam bentuk vektor numerik.
+        </p>
+
+        <h4>Cara Kerja</h4>
+
+        <p>
+            1. Setiap huruf plaintext diubah menjadi angka (A = 0 sampai Z = 25).<br>
+            2. Plaintext dibagi menjadi blok sesuai ukuran matriks kunci (misalnya 2×2 atau 3×3).<br>
+            3. Setiap blok diubah menjadi vektor kolom.<br>
+            4. Vektor plaintext dikalikan dengan matriks kunci.<br>
+            5. Hasil perkalian dimodulo 26 untuk mendapatkan ciphertext.<br>
+            6. Ciphertext kemudian dikonversi kembali menjadi huruf.
+        </p>
+
+        <h4>Contoh Enkripsi</h4>
+
+        <div class="example-box">
+
+            Plaintext : HI <br>
+            Konversi huruf → angka: H = 7, I = 8 <br><br>
+
+            Vektor P:
+            [7, 8] <br><br>
+
+            Matrix Key:
+            [[3, 3], <br>
+             [2, 5]] <br><br>
+
+            Proses:<br>
+            C1 = (3×7 + 3×8) mod 26 = (21 + 24) mod 26 = 45 mod 26 = 19 → T<br>
+            C2 = (2×7 + 5×8) mod 26 = (14 + 40) mod 26 = 54 mod 26 = 2 → C <br><br>
+
+            Ciphertext : TC
+
+        </div>
+
+        <h4>Kelebihan</h4>
+
+        <ul>
+            <li>Keamanan lebih tinggi dibanding cipher substitusi sederhana</li>
+            <li>Mengenkripsi beberapa huruf sekaligus (block cipher klasik)</li>
+            <li>Menggunakan konsep matematika modern (aljabar linear)</li>
+            <li>Pola frekuensi huruf menjadi lebih sulit dianalisis</li>
+        </ul>
+
+        <h4>Kekurangan</h4>
+
+        <ul>
+            <li>Perhitungan cukup kompleks, terutama untuk matriks besar</li>
+            <li>Matriks kunci harus invertible (memiliki invers modulo 26)</li>
+            <li>Jika kunci bocor, seluruh pesan dapat dengan mudah didekripsi</li>
+            <li>Rentan jika dilakukan known-plaintext attack</li>
+        </ul>
+
+        <h4>Kegunaan</h4>
+
+        <p>
+            Hill Cipher digunakan sebagai dasar pembelajaran kriptografi modern,
+            khususnya untuk memahami penerapan matriks, vektor, dan operasi modular
+            dalam sistem enkripsi. Cipher ini juga menjadi pengantar sebelum mempelajari
+            algoritma block cipher modern seperti AES.
+        </p>
+
+    </div>
+
+</div>
+<!-- =========================================
+PLAYFAIR
+========================================= -->
+
+<div class="crypto-card">
+
+    <h2>5. Playfair Cipher</h2>
+
+    <div class="theory-box">
+
+        <h4>Sejarah</h4>
+
+        <p>
+            Playfair Cipher pertama kali ditemukan oleh Charles Wheatstone pada tahun 1854,
+            namun kemudian dipopulerkan oleh Lord Playfair sehingga dikenal dengan nama tersebut.
+            Cipher ini digunakan secara luas pada abad ke-19 hingga awal abad ke-20,
+            terutama dalam komunikasi militer karena dianggap lebih aman dibandingkan
+            cipher substitusi sederhana pada masanya.
+        </p>
+
+        <h4>Deskripsi</h4>
+
+        <p>
+            Playfair Cipher adalah teknik kriptografi klasik berbasis substitusi digraf (pasangan huruf).
+            Berbeda dengan cipher lain yang memproses satu huruf, Playfair mengenkripsi dua huruf sekaligus
+            menggunakan sebuah matriks berukuran 5×5 yang berisi huruf alfabet (biasanya I dan J digabung).
+            Teknik ini membuat analisis frekuensi jauh lebih sulit dibandingkan cipher sederhana.
+        </p>
+
+        <h4>Pembentukan Matriks Key (5x5)</h4>
+
+        <p>
+            1. Tentukan kata kunci (misalnya MONARCHY).<br>
+            2. Hilangkan huruf yang berulang pada keyword.<br>
+            3. Isi matriks dengan huruf dari keyword terlebih dahulu.<br>
+            4. Lanjutkan dengan huruf alfabet lainnya yang belum digunakan.<br>
+            5. Biasanya huruf J digabung dengan I untuk memenuhi 25 slot.
+        </p>
+
+        <h4>Cara Kerja</h4>
+
+        <ul>
+            <li>Plaintext dibagi menjadi pasangan huruf (digraph)</li>
+            <li>Jika ada huruf yang sama dalam satu pasangan, disisipkan huruf X</li>
+            <li>Jika jumlah huruf ganjil, ditambahkan huruf X di akhir</li>
+            <li>Aturan enkripsi menggunakan posisi huruf pada matriks 5×5</li>
+            <li>Proses dilakukan berdasarkan posisi baris dan kolom</li>
+        </ul>
+
+        <h4>Aturan Enkripsi</h4>
+
+        <p>
+            1. Jika dua huruf berada dalam satu baris → geser ke kanan (looping).<br>
+            2. Jika dua huruf berada dalam satu kolom → geser ke bawah (looping).<br>
+            3. Jika membentuk persegi panjang → tukar kolom masing-masing huruf.
+        </p>
+
+        <h4>Contoh Enkripsi</h4>
+
+        <div class="example-box">
+
+            Plaintext : HELLO <br>
+            Key : MONARCHY <br><br>
+
+            Pembagian digraph:
+            HE - LX - LO <br><br>
+
+            Hasil enkripsi:<br>
+            HE → CF<br>
+            LX → SU<br>
+            LO → PM <br><br>
+
+            Ciphertext : CFSUPM
+
+        </div>
+
+        <h4>Kelebihan</h4>
+
+        <ul>
+            <li>Lebih aman dibanding substitution cipher satu huruf</li>
+            <li>Mengurangi efektivitas analisis frekuensi huruf tunggal</li>
+            <li>Mengenkripsi dalam bentuk pasangan huruf (digraph)</li>
+            <li>Cocok sebagai dasar pembelajaran kriptografi klasik</li>
+        </ul>
+
+        <h4>Kekurangan</h4>
+
+        <ul>
+            <li>Masih bisa dipecahkan dengan analisis digraph modern</li>
+            <li>Relatif mudah jika kunci berhasil ditebak</li>
+            <li>Proses enkripsi lebih rumit dibanding Caesar/Vigenère</li>
+            <li>Harus menyiapkan matriks 5×5 terlebih dahulu</li>
+        </ul>
+
+        <h4>Kegunaan</h4>
+
+        <p>
+            Playfair Cipher digunakan sebagai metode pembelajaran kriptografi klasik
+            untuk memahami konsep digraph substitution cipher, serta menjadi jembatan
+            menuju pemahaman algoritma kriptografi modern yang lebih kompleks.
+        </p>
+
+    </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

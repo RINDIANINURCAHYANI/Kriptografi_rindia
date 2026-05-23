@@ -52,8 +52,6 @@ def theory():
         'theory.html',
         history=session.get("history", [])
     )
-def index():
-    return render_template('index.html', history=get_history())
 
 # =========================================
 # CLEAR HISTORY
